@@ -1,11 +1,11 @@
-# FileFlux
+# FileFlux – Discord File Converter Bot
 
 [![Top.gg Verified](https://img.shields.io/badge/Top.gg-Verified-brightgreen)](https://top.gg/bot/1414901319998767144)
 [![Node.js](https://img.shields.io/badge/Node.js-v20+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Discord.js](https://img.shields.io/badge/Discord.js-v14-5865F2?logo=discord&logoColor=white)](https://discord.js.org/)
 
-**A simple and powerful Discord file converter bot that makes file conversion easy, fast, and accessible directly within Discord.**
+**FileFlux is a simple and powerful Discord file converter bot that makes file conversion easy, fast, and accessible directly within Discord.**
 
 FileFlux allows users to convert images, PDF documents, Word documents, and text files between supported formats using simple Discord slash commands. No external conversion website or additional software is required for users.
 
@@ -20,17 +20,17 @@ FileFlux allows users to convert images, PDF documents, Word documents, and text
 - **Slash Commands:** Simple and easy-to-use `/convert` and `/ping` commands.
 - **File Upload Support:** Upload files directly through Discord.
 - **File Size Limit:** Supports file uploads up to 10 MB.
-- **Automated Processing:** Automatically detects the input file and provides the available output formats.
+- **Automated Processing:** Automatically detects the input file and provides available output formats.
 
 ## Supported Conversions
 
-| Source                               | Target Formats    |
-| ------------------------------------ | ----------------- |
+| Source | Target Formats |
+|---|---|
 | Image (`jpg`, `jpeg`, `png`, `webp`) | Other images, PDF |
-| PDF                                  | DOCX              |
-| DOCX                                 | PDF               |
-| TXT                                  | MD                |
-| MD                                   | TXT               |
+| PDF | DOCX |
+| DOCX | PDF |
+| TXT | MD |
+| MD | TXT |
 
 ## Slash Commands
 
@@ -62,26 +62,25 @@ Converts an uploaded file into your selected output format.
 
 ## Tech Stack
 
-FileFlux uses the following technologies:
-
-| Technology  | Purpose                                    |
-| ----------- | ------------------------------------------ |
-| Node.js     | Main application runtime                   |
-| Discord.js  | Discord bot integration and slash commands |
-| Python      | Document conversion operations             |
-| Sharp       | Image processing and conversion            |
-| LibreOffice | Document format conversion                 |
-| pdf2docx    | PDF to DOCX conversion                     |
-| PDF-Lib     | PDF processing                             |
-| Showdown    | Markdown and HTML conversion               |
-| Docker      | Application containerization               |
+| Technology | Purpose |
+|---|---|
+| Node.js | Main application runtime |
+| Discord.js | Discord bot integration and slash commands |
+| Python | Document conversion operations |
+| Sharp | Image processing and conversion |
+| LibreOffice | Document format conversion |
+| pdf2docx | PDF to DOCX conversion |
+| PDF-Lib | PDF processing |
+| Showdown | Markdown and HTML conversion |
+| Docker | Application containerization |
 
 ## Project Structure
 
 ```text
-FileFlux/
+Convertly/
 │
 ├── docs/
+│   └── privacy.html
 │
 ├── converter.py
 ├── index.js
@@ -90,6 +89,7 @@ FileFlux/
 ├── package-lock.json
 ├── README.md
 ├── LICENSE
+├── .dockerignore
 └── .gitignore
 ```
 
@@ -109,13 +109,13 @@ Before running FileFlux locally, make sure you have installed:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Harshil-08/FileFlux.git
+git clone https://github.com/aryanp4200p/Convertly
 ```
 
 Navigate into the project directory:
 
 ```bash
-cd FileFlux
+cd Convertly
 ```
 
 ### 2. Install Node.js dependencies
@@ -161,51 +161,54 @@ If the configuration is correct, FileFlux will connect to Discord and register i
 
 FileFlux includes a Dockerfile to simplify application setup and deployment.
 
+Docker automatically installs the required Node.js, Python, LibreOffice, and document conversion dependencies inside the container.
+
 ### 1. Build the Docker image
 
 From the project root directory, run:
 
 ```bash
-docker build -t fileflux .
+docker build -f dockerfile -t convertly .
 ```
 
 ### 2. Run the container
 
 ```bash
-docker run -d \
-  --name fileflux \
-  --restart unless-stopped \
-  --env-file .env \
-  -p 3000:3000 \
-  fileflux
+docker run -d --name convertly-bot --env-file .env -p 3000:3000 --restart unless-stopped convertly:latest
 ```
 
 ### 3. Check container logs
 
 ```bash
-docker logs -f fileflux
+docker logs -f convertly-bot
 ```
 
-To stop the container:
+### 4. Stop the container
 
 ```bash
-docker stop fileflux
+docker stop convertly-bot
 ```
 
-To start it again:
+### 5. Start the container again
 
 ```bash
-docker start fileflux
+docker start convertly-bot
+```
+
+### 6. Check running containers
+
+```bash
+docker ps
 ```
 
 **Note:** Docker must be installed and running on your machine or hosting server. The `.env` file should remain outside the Git repository.
 
 ## Environment Variables
 
-| Variable    | Description                      | Required |
-| ----------- | -------------------------------- | -------- |
-| `TOKEN`     | Discord bot authentication token | Yes      |
-| `CLIENT_ID` | Discord application/client ID    | Yes      |
+| Variable | Description | Required |
+|---|---|---|
+| `TOKEN` | Discord bot authentication token | Yes |
+| `CLIENT_ID` | Discord application/client ID | Yes |
 
 ## Privacy and Security
 
@@ -281,10 +284,11 @@ This project is open source. See the [LICENSE](LICENSE) file for license details
 
 ## Links
 
-- **GitHub Repository:** 
-- **Top.gg Listing:** https://top.gg/bot/1414901319998767144
-- **Report Issues:** 
+- **GitHub Repository:** [Convertly](https://github.com/aryanp4200p/Convertly)
+- **Top.gg Listing:** [FileFlux](https://top.gg/bot/1414901319998767144)
+- **Report Issues:** [GitHub Issues](https://github.com/aryanp4200p/Convertly/issues)
+- **Privacy Policy:** [Read Privacy Policy](docs/privacy.html)
 
 ---
 
-**Made with ❤️ for the Discord community.**
+**Made for the Discord community.**
