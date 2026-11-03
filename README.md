@@ -281,14 +281,3 @@ git push origin feature/your-feature-name
 ## License
 
 This project is open source. See the [LICENSE](LICENSE) file for license details.
-
-## Links
-
-- **GitHub Repository:** [Convertly](https://github.com/aryanp4200p/Convertly)
-- **Top.gg Listing:** [FileFlux](https://top.gg/bot/1414901319998767144)
-- **Report Issues:** [GitHub Issues](https://github.com/aryanp4200p/Convertly/issues)
-- **Privacy Policy:** [Read Privacy Policy](docs/privacy.html)
-
----
-
-**Made for the Discord community.**
